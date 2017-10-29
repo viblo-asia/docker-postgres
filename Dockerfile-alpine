@@ -1,0 +1,12 @@
+FROM postgres:10-alpine
+
+COPY pg_hashids /tmp/pg_hashids
+
+RUN apk update && apk upgrade --no-cache
+RUN apk add --no-cache --virtual .build-deps make gcc libc-dev postgresql-dev
+
+RUN make -C /tmp/pg_hashids && \
+    make -C /tmp/pg_hashids install
+
+RUN rm -rf /tmp/pg_hashids
+RUN apk del .build-deps
