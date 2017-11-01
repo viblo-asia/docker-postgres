@@ -1,7 +1,7 @@
 FROM postgres:9.6
 
 ADD https://github.com/iCyberon/pg_hashids/archive/master.tar.gz /tmp/pg_hashids.tar.gz
-RUN cd /tmp && tar -x pg_hashids.tar.gz
+RUN cd /tmp && tar -xf pg_hashids.tar.gz
 
 RUN apt update && apt install -y apt-utils make gcc postgresql-server-dev-9.6
 
