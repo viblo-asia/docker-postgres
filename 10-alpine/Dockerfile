@@ -1,4 +1,4 @@
-FROM postgres:10-alpine
+FROM postgres:10.3-alpine
 
 ADD https://github.com/iCyberon/pg_hashids/archive/master.tar.gz /tmp/pg_hashids.tar.gz
 RUN cd /tmp && tar -xf pg_hashids.tar.gz
